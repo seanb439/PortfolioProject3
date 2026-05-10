@@ -1,0 +1,135 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Resume - Sean Burke Portfolio{% endblock %}
+
+{% block content %}
+<div class="resume-section">
+    <div class="resume-container">
+        <h2 class="section-title">Resume</h2>
+
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h1>{{ portfolio_info.name }}</h1>
+            <p>{{ portfolio_info.location }} | {{ portfolio_info.phone }} | {{ portfolio_info.email }}</p>
+            <p><a href="{{ portfolio_info.linkedin }}" target="_blank">LinkedIn Profile</a></p>
+        </div>
+
+        <!-- Career Profile -->
+        <div class="experience-item">
+            <h3>Career Profile</h3>
+            <p>{{ portfolio_info.bio }}</p>
+        </div>
+
+        <!-- Education -->
+        <div class="experience-item">
+            <h3>Education</h3>
+
+            <div class="experience-item" style="border: none; padding: 0; margin: 20px 0;">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Master of Science in Business Analytics</div>
+                        <div class="experience-company">Baylor University – Waco, TX</div>
+                        <div class="experience-date">Expected graduation: Spring 2026</div>
+                    </div>
+                </div>
+                <div class="experience-description">
+                    GPA: 3.97 | Beta Gamma Sigma member
+                </div>
+            </div>
+
+            <div class="experience-item" style="border: none; padding: 0; margin: 20px 0;">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Bachelor of Science</div>
+                        <div class="experience-company">Baylor University – Waco, TX</div>
+                        <div class="experience-date">August 2020 - May 2024</div>
+                    </div>
+                </div>
+                <div class="experience-description">
+                    Major: Environmental Science | Minor: Geology<br>
+                    GPA: 3.96
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="experience-item">
+            <h3>Professional Experience</h3>
+
+            <div class="experience-item" style="border: none; padding: 0; margin: 20px 0;">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Student Worker – Data Processor</div>
+                        <div class="experience-company">Baylor University – Waco, Texas</div>
+                        <div class="experience-date">August 2025 – Current</div>
+                    </div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Review and process incoming domestic high school transcripts</li>
+                        <li>Accurately enter applicant academic data into institutional systems</li>
+                        <li>Review and validate data captured through image recognition/OCR technology</li>
+                        <li>Strengthen reporting discipline, organizational skills, and attention to detail in a
+                            fast-paced operational environment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Projects -->
+        <div class="experience-item">
+            <h3>Key Projects</h3>
+
+            <div class="experience-item" style="border: none; padding: 0; margin: 20px 0;">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Baylor Early-Career Retirement Savings Case Study</div>
+                        <div class="experience-date">2024-2025</div>
+                    </div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Conducted statistical analysis of retirement savings behavior using anonymized institutional
+                            datasets</li>
+                        <li>Built predictive models and subgroup analyses to identify drivers of savings outcomes</li>
+                        <li>Identified key drivers of active participation and designed data-backed HR interventions
+                        </li>
+                        <li>Recommended optimized auto-enrollment defaults, targeted contribution escalation, and
+                            tailored digital engagement campaigns</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Summary -->
+        <div class="experience-item">
+            <h3>Technical Skills</h3>
+            <p>
+                <strong>Programming & Data Tools:</strong> Python, SQL, R, Excel, Tableau<br>
+                <strong>Analytics:</strong> Data cleaning, exploratory data analysis, statistical modeling, forecasting,
+                clustering, regression<br>
+                <strong>Visualization:</strong> Tableau, ggplot2, Excel charts, dashboard design, KPI reporting<br>
+                <strong>Cloud:</strong> AWS (Cloud Practitioner Certified)<br>
+                <strong>Other:</strong> Data preprocessing, automation workflows, Git/GitHub, business communication
+            </p>
+        </div>
+
+        <!-- Relevant Coursework -->
+        <div class="experience-item">
+            <h3>Relevant Coursework</h3>
+            <p>
+                Cloud Computing | Artificial Intelligence: Principles and Application | Statistical Methods |
+                Ethics in Data Analytics | Applied Regression Analysis | Computational Statistical Methods |
+                Advanced Python for Analytics | Database Management Systems | Seminar in Data Visualization |
+                Predictive Analysis | Business Intelligence | Data Science I
+            </p>
+        </div>
+
+        <!-- Download Section -->
+        <div style="text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid #ddd;">
+            <a href="/media/Sean%20Burke%20Resume.docx" class="btn btn-primary btn-lg">
+                <i class="fas fa-download"></i> Download Full Resume (PDF/DOCX)
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

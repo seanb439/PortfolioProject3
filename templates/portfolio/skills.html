@@ -1,0 +1,157 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Skills - Sean Burke Portfolio{% endblock %}
+
+{% block content %}
+<div class="skills-section">
+    <div class="skills-container">
+        <h2 class="section-title">Skills & Expertise</h2>
+
+        {% if skills_by_category %}
+        {% for category, skill_list in skills_by_category.items %}
+        <div class="skill-category">
+            <h3>{{ category }}</h3>
+            <div class="skill-tags">
+                {% for skill in skill_list %}
+                <div
+                    class="skill-tag {% if skill.proficiency == 'Advanced' or skill.proficiency == 'Expert' %}advanced{% endif %}">
+                    <div>{{ skill.name }}</div>
+                    <div class="skill-proficiency">{{ skill.proficiency }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <!-- Default Skills - can be replaced with database records -->
+        <div class="skill-category">
+            <h3>Programming & Data Tools</h3>
+            <div class="skill-tags">
+                <div class="skill-tag advanced">
+                    <div>Python</div>
+                    <div class="skill-proficiency">Advanced</div>
+                </div>
+                <div class="skill-tag advanced">
+                    <div>SQL</div>
+                    <div class="skill-proficiency">Advanced</div>
+                </div>
+                <div class="skill-tag advanced">
+                    <div>R</div>
+                    <div class="skill-proficiency">Advanced</div>
+                </div>
+                <div class="skill-tag advanced">
+                    <div>Excel</div>
+                    <div class="skill-proficiency">Expert</div>
+                </div>
+                <div class="skill-tag advanced">
+                    <div>Tableau</div>
+                    <div class="skill-proficiency">Advanced</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3>Analytics & Statistics</h3>
+            <div class="skill-tags">
+                <div class="skill-tag advanced">
+                    <div>Data Cleaning</div>
+                    <div class="skill-proficiency">Expert</div>
+                </div>
+                <div class="skill-tag advanced">
+                    <div>Exploratory Data Analysis</div>
+                    <div class="skill-proficiency">Advanced</div>
+                </div>
+                <div class="skill-tag advanced">
+                    <div>Statistical Modeling</div>
+                    <div class="skill-proficiency">Advanced</div>
+                </div>
+                <div class="skill-tag">
+                    <div>Predictive Modeling</div>
+                    <div class="skill-proficiency">Intermediate</div>
+                </div>
+                <div class="skill-tag">
+                    <div>Clustering</div>
+                    <div class="skill-proficiency">Intermediate</div>
+                </div>
+                <div class="skill-tag">
+                    <div>Forecasting</div>
+                    <div class="skill-proficiency">Intermediate</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3>Visualization & Reporting</h3>
+            <div class="skill-tags">
+                <div class="skill-tag advanced">
+                    <div>Tableau</div>
+                    <div class="skill-proficiency">Advanced</div>
+                </div>
+                <div class="skill-tag advanced">
+                    <div>ggplot2</div>
+                    <div class="skill-proficiency">Advanced</div>
+                </div>
+                <div class="skill-tag advanced">
+                    <div>Excel Charts</div>
+                    <div class="skill-proficiency">Advanced</div>
+                </div>
+                <div class="skill-tag advanced">
+                    <div>Dashboard Design</div>
+                    <div class="skill-proficiency">Advanced</div>
+                </div>
+                <div class="skill-tag">
+                    <div>Power BI</div>
+                    <div class="skill-proficiency">Intermediate</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3>Other Tools & Concepts</h3>
+            <div class="skill-tags">
+                <div class="skill-tag">
+                    <div>AWS Cloud</div>
+                    <div class="skill-proficiency">Intermediate</div>
+                </div>
+                <div class="skill-tag">
+                    <div>Git/GitHub</div>
+                    <div class="skill-proficiency">Intermediate</div>
+                </div>
+                <div class="skill-tag">
+                    <div>Data Preprocessing</div>
+                    <div class="skill-proficiency">Advanced</div>
+                </div>
+                <div class="skill-tag">
+                    <div>Business Communication</div>
+                    <div class="skill-proficiency">Advanced</div>
+                </div>
+                <div class="skill-tag">
+                    <div>Problem Solving</div>
+                    <div class="skill-proficiency">Expert</div>
+                </div>
+                <div class="skill-tag">
+                    <div>Project Management</div>
+                    <div class="skill-proficiency">Intermediate</div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <div style="margin-top: 60px; padding-top: 30px; border-top: 1px solid #ddd;">
+            <h3>Certifications</h3>
+            <ul>
+                <li>AWS Cloud Practitioner Certified</li>
+                <li>Beta Gamma Sigma Honor Society Member</li>
+            </ul>
+
+            <h3 style="margin-top: 30px;">Coursework</h3>
+            <p>
+                Cloud Computing, Artificial Intelligence: Principles and Application, Statistical Methods,
+                Ethics in Data Analytics, Applied Regression Analysis, Computational Statistical Methods,
+                Advanced Python for Analytics, Database Management Systems, Seminar in Data Visualization,
+                Predictive Analysis, Business Intelligence, Data Science I
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

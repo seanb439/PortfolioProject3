@@ -1,0 +1,62 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}About - Sean Burke Portfolio{% endblock %}
+
+{% block content %}
+<div class="about-section">
+    <div class="about-content">
+        <h2 class="section-title">About Me</h2>
+
+        <h3>Career Profile</h3>
+        <p>{{ portfolio_info.bio }}</p>
+
+        <h3 style="margin-top: 40px;">Education</h3>
+        <p>
+            <strong>Baylor University – Waco, TX</strong><br>
+            Master of Science in Business Analytics (Expected Spring 2026)<br>
+            GPA: 3.97 | Beta Gamma Sigma member
+        </p>
+        <p>
+            <strong>Bachelor of Science</strong> (May 2024)<br>
+            Major: Environmental Science | Minor: Geology<br>
+            GPA: 3.96
+        </p>
+
+        <h3 style="margin-top: 40px;">What I Do</h3>
+        <ul>
+            <li><strong>Data Analysis:</strong> Cleaning, validating, and analyzing data to generate accurate,
+                actionable insights</li>
+            <li><strong>Visualization:</strong> Creating dashboards and visual reports that tell compelling stories</li>
+            <li><strong>Statistical Modeling:</strong> Building predictive models and analyzing trends</li>
+            <li><strong>Business Intelligence:</strong> Helping organizations make data-driven decisions</li>
+            <li><strong>Automation:</strong> Developing workflows to improve reporting efficiency</li>
+        </ul>
+
+        <h3 style="margin-top: 40px;">Key Areas of Expertise</h3>
+        <p>
+            <strong>Programming & Tools:</strong> Python, SQL, R, Excel, Tableau<br>
+            <strong>Analytics:</strong> Data cleaning, exploratory data analysis, statistical modeling, forecasting<br>
+            <strong>Visualization:</strong> Dashboard design, KPI reporting, business communication<br>
+            <strong>Other:</strong> Data preprocessing, automation workflows, stakeholder communication
+        </p>
+
+        <h3 style="margin-top: 40px;">Current Role</h3>
+        <p>
+            <strong>Student Worker – Data Processor</strong><br>
+            Baylor University (August 2025 – Current)<br>
+            <br>
+            I review and process incoming domestic high school transcripts, accurately entering applicant academic data
+            into institutional systems. This role has strengthened my attention to detail and organizational skills in a
+            fast-paced operational environment.
+        </p>
+
+        <h3 style="margin-top: 40px;">Fun Facts</h3>
+        <ul>
+            <li>AWS Cloud Practitioner Certified</li>
+            <li>Passionate about transforming complex data into clear, actionable insights</li>
+            <li>Interest in AI/ML applications and modern analytics tools</li>
+            <li>Strong believer in continuous learning and professional development</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,347 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}{{ project.title }} - Sean Burke Portfolio{% endblock %}
+
+{% block content %}
+<a href="{% url 'portfolio:projects' %}" class="back-button">
+    <i class="fas fa-arrow-left"></i> Back to Projects
+</a>
+
+<div class="project-detail-header">
+    <div class="project-detail-content">
+        <h1>{{ project.title }}</h1>
+        <p class="lead">{{ project.summary }}</p>
+        <span class="badge bg-light text-dark" style="font-size: 1rem;">{{ project.category }}</span>
+    </div>
+</div>
+
+<div class="project-detail-content" style="padding-top: 40px;">
+    {% if project.image and project.title != 'Machine Learning Model' %}
+    <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-image">
+    {% endif %}
+
+    {% if project.title == 'Machine Learning Model' %}
+    <div class="project-detail-section">
+        <h3>Project Summary</h3>
+        <p>{{ project.summary }}</p>
+    </div>
+
+    <div class="project-detail-section">
+        <h3>Project 1: Handwritten Digit Classification with K-Nearest Neighbors</h3>
+        <p><strong>Objective:</strong> Build a machine learning model capable of recognizing handwritten digits using
+            the K-Nearest Neighbors classification algorithm.</p>
+        <p><strong>Dataset:</strong> The project uses the handwritten digits dataset from Scikit-learn through
+            <em>load_digits()</em>. The dataset contains images of handwritten numbers (0-9) represented as 8×8 pixel
+            arrays.
+        </p>
+        <p><strong>Development Process:</strong> The dataset was loaded and explored by reviewing descriptions, feature
+            values, target labels, and dataset dimensions. Matplotlib was used to visualize sample digits and verify the
+            image structure. The data was split with <em>train_test_split()</em>, a K-Nearest Neighbors classifier was
+            trained, and predictions were generated for the test set.</p>
+        <p><strong>Model Evaluation:</strong> Accuracy scoring, prediction comparison, error analysis, and confusion
+            matrix generation were used to assess performance. A Seaborn heatmap made the classification results easy to
+            interpret.</p>
+    </div>
+
+    <div class="project-detail-section">
+        <h3>Project 2: California Housing Price Prediction with Linear Regression</h3>
+        <p><strong>Objective:</strong> Predict California housing prices using linear regression based on demographic
+            and geographic housing features.</p>
+        <p><strong>Dataset:</strong> The project uses the California Housing dataset from Scikit-learn through
+            <em>fetch_california_housing()</em>. The dataset includes variables such as median income, house age,
+            average rooms, population, latitude, and longitude.
+        </p>
+        <p><strong>Development Process:</strong> The dataset was loaded into a Pandas DataFrame, descriptive statistics
+            were generated, and a random sample was created for exploratory analysis. The data was then divided into
+            training and testing sets, and a linear regression model was trained using the training data.</p>
+        <p><strong>Prediction and Visualization:</strong> The model generated housing price predictions for the testing
+            dataset, and a scatterplot with a diagonal reference line was used to compare actual versus predicted
+            values. Points closer to the line indicated more accurate predictions.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="project-detail-section">
+                <h3>Technologies Used</h3>
+                <ul class="project-bullet-list">
+                    <li>Python</li>
+                    <li>Scikit-learn</li>
+                    <li>Pandas</li>
+                    <li>Matplotlib</li>
+                    <li>Seaborn</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="project-detail-section">
+                <h3>Skills Demonstrated</h3>
+                <ul class="project-bullet-list">
+                    <li>Classification modeling</li>
+                    <li>Regression modeling</li>
+                    <li>Data visualization</li>
+                    <li>Model evaluation</li>
+                    <li>Confusion matrix analysis</li>
+                    <li>Predictive analytics</li>
+                    <li>Data preprocessing</li>
+                    <li>Exploratory data analysis</li>
+                    <li>Model interpretation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-detail-section">
+        <h3>Conclusion</h3>
+        <p>{{ project.description }}</p>
+    </div>
+
+    <div class="project-detail-section">
+        <h3>Screenshots</h3>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <img src="/media/projects/ml_1.png" alt="Machine learning classification screenshot"
+                    class="project-image project-gallery-image">
+            </div>
+            <div class="col-md-6">
+                <img src="/media/projects/ml_2.png" alt="Machine learning regression screenshot"
+                    class="project-image project-gallery-image">
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #ddd;">
+        <h3>Links & Resources</h3>
+        <div class="project-links" style="gap: 15px;">
+            <a href="{% url 'portfolio:projects' %}" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left"></i> Back to All Projects
+            </a>
+        </div>
+    </div>
+
+    {% if related_projects %}
+    <div class="related-projects">
+        <h3>Related Projects</h3>
+        <div class="row">
+            {% for related in related_projects %}
+            <div class="col-md-4 mb-3">
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <h5 style="margin-bottom: 0;">{{ related.title }}</h5>
+                    </div>
+                    <div class="project-card-body">
+                        <p class="project-summary">{{ related.summary }}</p>
+                        <a href="{% url 'portfolio:project_detail' related.id %}" class="btn btn-sm btn-primary">View
+                            Project</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% else %}
+
+    {% if project.description and project.title != 'Chatbot Project' %}
+    <div class="project-detail-section">
+        <h3>Overview</h3>
+        <p>{{ project.description|linebreaksbr }}</p>
+    </div>
+    {% endif %}
+
+    {% if project.title != 'LangChain Agent Project' %}
+    <div class="project-detail-section">
+        <h3>Project Summary</h3>
+        {% if project.title == 'Chatbot Project' %}
+        <p>{{ project.description|linebreaksbr }}</p>
+        {% else %}
+        <p>{{ project.summary }}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {% if project.title == 'Google AI Studio Media Project' %}
+    <div class="project-detail-section">
+        <h3>Image Generation Deliverables</h3>
+        <p>The image generation portion of the project focused on building a cohesive promotional campaign for a
+            fictional product, including social media marketing assets and a polished team presentation image.</p>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <img src="/media/projects/media2.png" alt="Google AI Studio media project screenshot 2"
+                    class="project-image project-gallery-image">
+            </div>
+            <div class="col-md-6">
+                <img src="/media/projects/media3.png" alt="Google AI Studio media project screenshot 3"
+                    class="project-image project-gallery-image">
+            </div>
+        </div>
+    </div>
+
+    <div class="project-detail-section">
+        <h3>Video Generation Deliverable</h3>
+        <p>The video generation portion used Google AI Studio / Flow to produce a scene-based clip. The embedded video
+            below captures the final output for the Breaking Bad inspired media project.</p>
+        <video class="project-image" controls playsinline style="width: 100%; max-height: 520px; background: #000;">
+            <source src="/media/projects/Breakingbad.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-md-6">
+            {% if project.business_problem %}
+            <div class="project-detail-section">
+                <h3>Business Problem</h3>
+                <p>{{ project.business_problem|linebreaksbr }}</p>
+            </div>
+            {% endif %}
+
+            <div class="project-detail-section">
+                <h3>Tools & Technologies</h3>
+                {% if project.title == 'n8n Agent Workflow Project' %}
+                <ul class="project-bullet-list">
+                    <li>n8n</li>
+                    <li>Google Gemini</li>
+                    <li>JavaScript</li>
+                    <li>Webhooks and REST APIs</li>
+                    <li>Google Forms</li>
+                    <li>Google Sheets</li>
+                    <li>JSON workflow orchestration</li>
+                    <li>AI prompt engineering</li>
+                </ul>
+                {% else %}
+                <p>{{ project.tools_used|linebreaksbr }}</p>
+                {% endif %}
+            </div>
+
+            <div class="project-detail-section">
+                <h3>Key Features</h3>
+                {% if project.title == 'n8n Agent Workflow Project' %}
+                <ul class="project-bullet-list">
+                    <li>Multi-agent orchestration architecture</li>
+                    <li>AI-powered natural language intake processing</li>
+                    <li>Automated pricing and scheduling logic</li>
+                    <li>Human-in-the-loop escalation workflows</li>
+                    <li>Google Forms and Google Sheets integration</li>
+                    <li>Dynamic email generation and delivery</li>
+                    <li>External API integration for scheduling logic</li>
+                    <li>JSON-based workflow communication between agents</li>
+                    <li>Modular and scalable workflow design</li>
+                </ul>
+                {% else %}
+                <p>{{ project.key_features|linebreaksbr }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            {% if project.title != 'LangChain Agent Project' %}
+            <div class="project-detail-section">
+                <h3>My Role & Contribution</h3>
+                <p>{{ project.role_contribution|linebreaksbr }}</p>
+            </div>
+            {% endif %}
+
+            <div class="project-detail-section">
+                <h3>Biggest Challenge</h3>
+                <p>{{ project.challenge|linebreaksbr }}</p>
+            </div>
+
+            <div class="project-detail-section">
+                <h3>What I Learned</h3>
+                <p>{{ project.lessons_learned|linebreaksbr }}</p>
+            </div>
+        </div>
+    </div>
+
+    {% if project.title == 'n8n Agent Workflow Project' %}
+    <div class="project-detail-section">
+        <h3>Skills Demonstrated</h3>
+        <ul class="project-bullet-list">
+            <li>Workflow automation engineering</li>
+            <li>AI systems integration</li>
+            <li>Multi-agent orchestration</li>
+            <li>Human-in-the-loop system design</li>
+            <li>API integration</li>
+            <li>Business process automation</li>
+            <li>Prompt engineering</li>
+            <li>Event-driven architecture</li>
+            <li>Low-code/no-code development</li>
+            <li>Operational decision logic</li>
+        </ul>
+    </div>
+
+    <div class="project-detail-section">
+        <h3>Workflow Screenshots</h3>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <img src="/media/projects/orchestrator.png" alt="n8n orchestrator workflow"
+                    class="project-image project-gallery-image">
+            </div>
+            <div class="col-md-6">
+                <img src="/media/projects/agent_intake.png" alt="n8n intake agent"
+                    class="project-image project-gallery-image">
+            </div>
+            <div class="col-md-6">
+                <img src="/media/projects/agent_pricing.png" alt="n8n pricing agent"
+                    class="project-image project-gallery-image">
+            </div>
+            <div class="col-md-6">
+                <img src="/media/projects/agent_scheduling.png" alt="n8n scheduling agent"
+                    class="project-image project-gallery-image">
+            </div>
+            <div class="col-md-12">
+                <img src="/media/projects/agent_comms.png" alt="n8n communications agent"
+                    class="project-image project-gallery-image">
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #ddd;">
+        <h3>Links & Resources</h3>
+        <div class="project-links" style="gap: 15px;">
+            {% if project.github_link %}
+            <a href="{{ project.github_link }}" target="_blank" class="btn btn-primary">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+            {% endif %}
+            {% if project.demo_link %}
+            <a href="{{ project.demo_link }}" target="_blank" class="btn btn-success">
+                <i class="fas fa-play-circle"></i> Live Demo
+            </a>
+            {% endif %}
+            <a href="{% url 'portfolio:projects' %}" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left"></i> Back to All Projects
+            </a>
+        </div>
+    </div>
+
+    <!-- Related Projects -->
+    {% if related_projects %}
+    <div class="related-projects">
+        <h3>Related Projects</h3>
+        <div class="row">
+            {% for related in related_projects %}
+            <div class="col-md-4 mb-3">
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <h5 style="margin-bottom: 0;">{{ related.title }}</h5>
+                    </div>
+                    <div class="project-card-body">
+                        <p class="project-summary">{{ related.summary }}</p>
+                        <a href="{% url 'portfolio:project_detail' related.id %}" class="btn btn-sm btn-primary">View
+                            Project</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% endif %}
+</div>
+{% endblock %}

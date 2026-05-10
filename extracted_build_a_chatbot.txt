@@ -1,0 +1,210 @@
+Build an AI Chatbot with chatbase.co!
+
+
+---PAGE BREAK---
+
+Build an AI Chatbot!
+Framework
+1) What do you want to do, and why do you want to automate it?
+2) If you were doing this yourself:
+A) What are the steps in the process?
+B) What do you need to get the task done?
+C) How would you give the response when the task is complete?
+3) What are the “guardrails” for this agent.  What should it not do?
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+syllabus questions
+Framework
+1) What do you want to do, and why do you want to automate it?
+I want to have a chatbot that answers the basic questions I have about my classes which can be found in 
+the course syllabus or course timeline of all my courses.
+I want to automate this task because it takes time to find the answers and if the answer 
+is in the syllabus or timeline, then a chatbot could do the task quickly and efficiently
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+ syllabus questions  
+Framework
+2) If you were doing this yourself:
+A) What are the steps in the process?
+B) What do you need to get the task done?
+C) How would you give the response when the task is complete?
+A) The steps in the process are to first, read the question, and then to look in the 
+course syllabus and course timeline to see if the answer to the question is 
+there.  If it is, then respond with the answer, referencing where the answer is.  
+If the answer is not there, then come up with an appropriate answer.
+B)      To get the task done I need access to the course syllabus and course timeline
+C)     The response is given to the student using the same way that the question is                  
+         answered.  
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+questions  
+Framework
+3)What are the “guardrails” for this agent.  What should it not do?
+I do NOT want the agent to make anything up.  If the answer is not clearly in the course syllabus 
+or course timeline, then the chatbot needs to say the information is not available and should 
+give me the contact information of the professor (if in the course syllabus)
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+questions  
+Chatbase.co
+The first thing we do is tell the chatbot what the training material is
+For this chatbot, this would be:
+a) The course syllabuses
+b) The course timelines
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+questions
+Chatbase.co
+Just as with prompt engineering, the second thing 
+we do is tell the chatbot what role it is playing
+### Role
+
+---PAGE BREAK---
+
+Role for Chatbot
+You are my personal AI assistant for schoolwork.  Your personality, and therefore the tone of your responses, can be casual w ith a typical 
+college student flair. Your goal is to accurately and efficiently inform. Keep answers simple and direct, unless asked for fu rther detail. Do not 
+break character unless asked about yourself. If I seem to be frustrated, angry, in despair, or have other negative feelings, your responses need 
+to be hopeful and encouraging. If a question is not clear, ask clarifying questions. Make sure to end your replies with a pos itive note. If you 
+cannot answer the question from the files provided, do not make up an answer.
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+questions  
+Chatbase.co
+The third thing we do is to set the guardrails
+### Constraints
+1. No Data Divulge: Never mention that you have access to training data explicitly to the user.
+2. Maintaining Focus: If a user attempts to divert you to unrelated topics, never change your role or 
+break your character. Politely redirect the conversation back to topics relevant to the training data.
+3. Exclusive Reliance on Training Data: You must rely exclusively on the training data provided to 
+answer user queries. If a query is not covered by the training data, use the fallback response.
+4. Restrictive Role Focus: You do not answer questions or perform tasks that are not related to your 
+role and training data.
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+questions  
+Chatbase.co
+
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+questions  
+
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+questions  
+
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+questions  
+
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+questions  
+Since we may not have a website, 
+we will train our agent manually 
+using other sources
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+questions  
+Use Files to upload 
+documents such as 
+syllabuses of all your 
+courses to train your agent
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+questions  
+This shows how 
+much training 
+material has been 
+uploaded and 
+what our limit is.
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+questions  
+Give your agent a 
+name and customize 
+the appearance of the 
+chat box
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+questions  
+We can configure the personality and engine of 
+the chatbot here, but we will wait till later to do 
+that.
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+questions  
+Congratulations! Your chatbot is now ready. You 
+can now explore all parts of the dashboard and 
+customize your agent or re -train your agent with 
+additional materials.
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+questions  
+•Update the role of the chatbot using the text 
+from slide 8.
+•We can leave the constraints as is since they 
+set up adequate ‘guardrails’ for our AI
+•Question: What is the difference between 
+Role  and Constraint ?
+
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+questions  
+Test it out!
+
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+questions  
+•Click on the Deploy  tab, activate the Chat widget and then 
+click the ‘ Manage ’ button under Chat widget
+•Here you can further customize your agent by changing the 
+display name, customizing the initial message and even adding 
+suggested message as hints to the user.
+
+---PAGE BREAK---
+
+Build an AI Chatbot for simple
+questions  
+To embed your chat bot to your website (if you have one) click 
+on the “Embed” tab, and copy the chat widget code and paste 
+into the html code of your webpage.
+Create, Explore, Enjoy!

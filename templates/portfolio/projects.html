@@ -1,0 +1,48 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Projects - Sean Burke Portfolio{% endblock %}
+
+{% block content %}
+<div class="projects-section">
+    <div class="projects-container">
+        <h2 class="section-title" style="margin-bottom: 40px;">My Projects</h2>
+
+        {% if projects %}
+        {% for project in projects %}
+        <div class="project-card">
+            <div class="project-card-header">
+                <h3>{{ project.title }}</h3>
+                <span class="project-category">{{ project.category }}</span>
+            </div>
+            <div class="project-card-body">
+                <p class="project-summary">{{ project.summary }}</p>
+
+                <p><strong>Business Problem:</strong></p>
+                <p>{{ project.business_problem|truncatewords:30 }}</p>
+
+                <div class="project-links">
+                    <a href="{% url 'portfolio:project_detail' project.id %}" class="btn btn-sm btn-primary">
+                        <i class="fas fa-arrow-right"></i> View Full Details
+                    </a>
+                    {% if project.github_link %}
+                    <a href="{{ project.github_link }}" target="_blank" class="btn btn-sm btn-outline-secondary">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    {% endif %}
+                    {% if project.demo_link %}
+                    <a href="{{ project.demo_link }}" target="_blank" class="btn btn-sm btn-outline-secondary">
+                        <i class="fas fa-play-circle"></i> Demo
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="alert alert-info text-center" role="alert">
+            <p>No projects added yet. Check back soon!</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
