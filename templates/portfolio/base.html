@@ -38,20 +38,9 @@
 
     {% block content %}{% endblock %}
 
-    <!-- Chatbot Widget -->
-    <div class="chatbot-widget" id="chatbotWidget">
-        <div class="chatbot-header" onclick="toggleChatbot()">
-            <i class="fas fa-comments"></i> Chat with me
-        </div>
-        <div class="chatbot-body" id="chatbotBody" style="display: none;">
-            <div class="chat-messages" id="chatMessages"></div>
-            <div class="chat-input-area">
-                <input type="text" id="chatInput" class="form-control" placeholder="Ask me something..."
-                    onkeypress="handleChatInput(event)">
-                <button class="btn btn-primary btn-sm" onclick="sendMessage()">Send</button>
-            </div>
-        </div>
-    </div>
+    <script>
+        (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "tYwZwq5y75Z-sy2dloFi-"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
+    </script>
 
     <!-- Footer -->
     <footer class="bg-dark text-light py-5 mt-5">
