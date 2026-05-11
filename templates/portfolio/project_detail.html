@@ -113,6 +113,11 @@
     <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #ddd;">
         <h3>Links & Resources</h3>
         <div class="project-links" style="gap: 15px;">
+            {% if project.github_link %}
+            <a href="{{ project.github_link }}" target="_blank" class="btn btn-primary">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+            {% endif %}
             <a href="{% url 'portfolio:projects' %}" class="btn btn-outline-secondary">
                 <i class="fas fa-arrow-left"></i> Back to All Projects
             </a>
@@ -150,7 +155,7 @@
     </div>
     {% endif %}
 
-    {% if project.title != 'LangChain Agent Project' %}
+    {% if project.title != 'LangChain Agent Project' and project.title != 'Google AI Studio Media Project' %}
     <div class="project-detail-section">
         <h3>Project Summary</h3>
         {% if project.title == 'Chatbot Project' %}
